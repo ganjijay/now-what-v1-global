@@ -43,7 +43,7 @@ export default function LegalPage() {
 
   const supportEmail =
     process.env.NEXT_PUBLIC_SUPPORT_EMAIL ||
-    "jayb.lee0403@gmail.com";
+    "support@nowwhatai.net";
 
   if (!languageReady) {
     return <main className={styles.page} />;
