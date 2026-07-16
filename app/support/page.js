@@ -466,7 +466,7 @@ export default function SupportPage() {
         <div>
           <p>SUPPORT CENTER</p>
           <h1>{t.title}</h1>
-          <span>{user.email}</span>
+          
         </div>
 
         <label
