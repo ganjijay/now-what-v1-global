@@ -1,0 +1,10 @@
+Add these variables to your existing .env.local:
+
+STRIPE_SECRET_KEY=sk_live_your_secret_key
+STRIPE_PRICE_10=price_your_10_credit_price
+STRIPE_PRICE_30=price_your_30_credit_price
+STRIPE_PRICE_100=price_your_100_credit_price
+
+Optional for production:
+
+NEXT_PUBLIC_APP_URL=https://your-vercel-domain.vercel.app
