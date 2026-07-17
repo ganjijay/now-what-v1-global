@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">NowWhat</string>
+    <string name="title_activity_main">NowWhat</string>
+    <string name="package_name">net.nowwhatai.app</string>
+    <string name="custom_url_scheme">net.nowwhatai.app</string>
+</resources>

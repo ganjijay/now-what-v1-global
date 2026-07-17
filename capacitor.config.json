@@ -1,0 +1,8 @@
+{
+  "appId": "net.nowwhatai.app",
+  "appName": "NowWhat",
+  "webDir": "public",
+  "server": {
+    "url": "https://www.nowwhatai.net"
+  }
+}

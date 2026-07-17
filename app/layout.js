@@ -1,3 +1,4 @@
+import CapacitorBackButton from "./CapacitorBackButton";
 import "./globals.css";
 
 export const metadata = {
@@ -10,7 +11,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body>
+  <CapacitorBackButton />
+  {children}
+</body>
     </html>
   );
 }
