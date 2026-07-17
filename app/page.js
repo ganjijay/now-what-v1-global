@@ -888,22 +888,16 @@ export default function Home() {
   const [purchaseLoading, setPurchaseLoading] = useState("");
   const [showPricing, setShowPricing] = useState(false);
 useEffect(() => {
-  const closePricing = () => {
+  window.nowWhatPricingOpen = showPricing;
+  window.closeNowWhatPricing = () => {
     setShowPricing(false);
   };
 
-  window.addEventListener(
-    "nowwhat-close-pricing",
-    closePricing
-  );
-
   return () => {
-    window.removeEventListener(
-      "nowwhat-close-pricing",
-      closePricing
-    );
+    delete window.nowWhatPricingOpen;
+    delete window.closeNowWhatPricing;
   };
-}, []);
+}, [showPricing]);
 
   useEffect(() => {
     if (!languageReady) return;

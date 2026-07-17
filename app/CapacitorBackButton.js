@@ -12,13 +12,11 @@ export default function CapacitorBackButton() {
 
     const connectBackButton = async () => {
       listener = await App.addListener("backButton", () => {
-        const pricingSection =
-          document.getElementById("pricing");
-
-        if (pricingSection) {
-          window.dispatchEvent(
-            new Event("nowwhat-close-pricing")
-          );
+        if (
+          window.nowWhatPricingOpen &&
+          typeof window.closeNowWhatPricing === "function"
+        ) {
+          window.closeNowWhatPricing();
           return;
         }
 
