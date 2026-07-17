@@ -888,16 +888,16 @@ export default function Home() {
   const [purchaseLoading, setPurchaseLoading] = useState("");
   const [showPricing, setShowPricing] = useState(false);
 useEffect(() => {
-  window.nowWhatPricingOpen = showPricing;
-  window.closeNowWhatPricing = () => {
+  const handleBack = () => {
     setShowPricing(false);
   };
 
+  window.addEventListener("popstate", handleBack);
+
   return () => {
-    delete window.nowWhatPricingOpen;
-    delete window.closeNowWhatPricing;
+    window.removeEventListener("popstate", handleBack);
   };
-}, [showPricing]);
+}, []);
 
   useEffect(() => {
     if (!languageReady) return;
@@ -1377,15 +1377,17 @@ useEffect(() => {
                 setShowPricing(next);
 
                 if (next) {
-                  setTimeout(() => {
-                    document
-                      .getElementById("pricing")
-                      ?.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start"
-                      });
-                  }, 50);
-                }
+  window.history.pushState({ pricing: true }, "");
+
+  setTimeout(() => {
+    document
+      .getElementById("pricing")
+      ?.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+  }, 50);
+}
               }}
             >
               💎{" "}
