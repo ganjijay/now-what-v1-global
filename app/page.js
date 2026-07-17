@@ -888,19 +888,22 @@ export default function Home() {
   const [purchaseLoading, setPurchaseLoading] = useState("");
   const [showPricing, setShowPricing] = useState(false);
 useEffect(() => {
-  const handleAppBack = (event) => {
-    if (showPricing) {
-      event.preventDefault();
-      setShowPricing(false);
-    }
+  const closePricing = () => {
+    setShowPricing(false);
   };
 
-  window.addEventListener("nowwhat-back", handleAppBack);
+  window.addEventListener(
+    "nowwhat-close-pricing",
+    closePricing
+  );
 
   return () => {
-    window.removeEventListener("nowwhat-back", handleAppBack);
+    window.removeEventListener(
+      "nowwhat-close-pricing",
+      closePricing
+    );
   };
-}, [showPricing]);
+}, []);
 
   useEffect(() => {
     if (!languageReady) return;

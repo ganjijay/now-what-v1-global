@@ -12,13 +12,13 @@ export default function CapacitorBackButton() {
 
     const connectBackButton = async () => {
       listener = await App.addListener("backButton", () => {
-        const backEvent = new CustomEvent("nowwhat-back", {
-          cancelable: true
-        });
+        const pricingSection =
+          document.getElementById("pricing");
 
-        window.dispatchEvent(backEvent);
-
-        if (backEvent.defaultPrevented) {
+        if (pricingSection) {
+          window.dispatchEvent(
+            new Event("nowwhat-close-pricing")
+          );
           return;
         }
 
@@ -28,9 +28,10 @@ export default function CapacitorBackButton() {
 
         if (!isHomePage) {
           window.location.href = "/";
-        } else {
-          App.exitApp();
+          return;
         }
+
+        App.exitApp();
       });
     };
 
