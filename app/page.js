@@ -2,6 +2,7 @@
 
 import { onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
 import { useEffect, useRef, useState } from "react";
+import { Browser } from "@capacitor/browser";
 import { APP_LANGUAGES, useAppLanguage } from "../lib/i18n";
 import { auth, googleProvider } from "../lib/firebase";
 import {
@@ -1054,7 +1055,9 @@ export default function Home() {
         );
       }
 
-      window.location.href = data.url;
+     await Browser.open({
+  url: data.url
+});
     } catch (purchaseError) {
       console.error(purchaseError);
       setError(
