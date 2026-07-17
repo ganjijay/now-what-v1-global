@@ -887,6 +887,20 @@ export default function Home() {
   const [copied, setCopied] = useState(false);
   const [purchaseLoading, setPurchaseLoading] = useState("");
   const [showPricing, setShowPricing] = useState(false);
+useEffect(() => {
+  const handleAppBack = (event) => {
+    if (showPricing) {
+      event.preventDefault();
+      setShowPricing(false);
+    }
+  };
+
+  window.addEventListener("nowwhat-back", handleAppBack);
+
+  return () => {
+    window.removeEventListener("nowwhat-back", handleAppBack);
+  };
+}, [showPricing]);
 
   useEffect(() => {
     if (!languageReady) return;

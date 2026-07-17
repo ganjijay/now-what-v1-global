@@ -12,6 +12,16 @@ export default function CapacitorBackButton() {
 
     const connectBackButton = async () => {
       listener = await App.addListener("backButton", () => {
+        const backEvent = new CustomEvent("nowwhat-back", {
+          cancelable: true
+        });
+
+        window.dispatchEvent(backEvent);
+
+        if (backEvent.defaultPrevented) {
+          return;
+        }
+
         const isHomePage =
           window.location.pathname === "/" ||
           window.location.pathname === "";
